@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquerylibarary.js"></script>
+    <script src="../js/dist/jquery.validate.min.js"></script>
+         <style>
+        body {
+            background-color: plum;
+            font-size: large;
+        }
+
+        .parent {
+            background-color: rgb(100, 21, 100);
+            border: 1px solid rgba(35, 4, 4, 0.759);
+            width: 400px;
+            height: 500px;
+            padding: 10px;
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+            color: azure;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        form {
+            margin-top: 60px;
+        }
+
+        #one {
+            margin-top: 5px;
+        }
+
+        #msg {
+            display: flex;
+            border: none;
+            height: 110px;
+            padding: 10px;
+            background-color: rgb(100, 21, 100);
+            color: azure;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+
+        input {
+            padding: 5px;
+            margin: 7px;
+            width: 295px;
+            height: 40px;
+        }
+
+        .web {
+            margin-left: -18px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #d72dc0, #883e9c);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 20px;
+            height: 50px;
+            width: 150px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #883e9c, #d72dc0);
+        }
+
+        .msgbox {
+            margin-left: -8px;
+        }
+    .error{
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <form>
+            <label>Name: </label>
+            <input type="text" name="name"><br>
+
+            <label>Email: </label>
+            <input type="email" name="email"><br>
+
+            <label class="web">Website: </label>
+            <input type="text" name="website"><br>
+
+            <div id="msg">
+                <label id="msg" class="msgbox">Message: </label>
+                <textarea name="message" rows="15" cols="34"></textarea><br>
+            </div>
+
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+    <script>
+        $('form').validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                website: {
+                    required: true,
+                    url:true
+                },
+                message: {
+                    required: true,
+                }
+
+            },
+            messages: {
+                name: {
+                    required: "This feild is required"
+                },
+                email: {
+                    required: "Email is required",
+                    email: "valid email is required"
+                },
+                website: {
+                    required: "This feild is Required",
+                    url:"enter correct url"
+                },
+                message: {
+                    required: "This feild is required"
+                }
+            },
+            submitHandler: function (form) {
+                form.submit()
+            }
+        })
+    </script>
+</body>
+
+</html>
